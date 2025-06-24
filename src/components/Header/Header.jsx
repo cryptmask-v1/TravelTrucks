@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styles from "../Header/Header.module.css";
 
 const Header = () => {
@@ -6,14 +7,24 @@ const Header = () => {
     <div className={styles.header}>
       <h1 href="#" className={styles.logo}>
         Travel<span className={styles.trucks}>Trucks</span>
-      </h1>
+      </h1>{" "}
       <div className={styles.nav}>
-        <a href="#" className={styles.link}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+          }
+        >
           Home
-        </a>
-        <a href="#" className={styles.link}>
-          Category
-        </a>
+        </NavLink>
+        <NavLink
+          to="/catalog"
+          className={({ isActive }) =>
+            isActive ? `${styles.link} ${styles.activeLink}` : styles.link
+          }
+        >
+          Catalog
+        </NavLink>
       </div>
     </div>
   );

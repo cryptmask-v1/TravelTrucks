@@ -13,6 +13,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Global layout styles for pages with fixed header */
+.page-content {
+  padding-top: 92px; /* Header height (72px) + some extra space (20px) */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  min-height: 100vh;
+}
+
 :root {
   --main: #101828;
   --text: #475467;
