@@ -1,7 +1,11 @@
+import Header from "../components/Header/Header.jsx";
+import Hero from "../components/Hero/Hero.jsx";
+
 const HomePage = () => {
   return (
     <div>
-      <p>Hello from homepage</p>
+      <Header />
+      <Hero />
     </div>
   );
 };

@@ -1,0 +1,70 @@
+.hero {
+  position: relative;
+  background-image: url("../../assets/hero.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  margin-left: 64px;
+  margin-top: 72px;
+  max-width: 650px;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 67%;
+  color: var(--inputs);
+  margin-bottom: 24px;
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--white);
+  margin-bottom: 48px;
+}
+
+.button {
+  background: var(--button);
+  color: var(--white);
+  border: none;
+  border-radius: 200px;
+  padding: 16px 60px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+}
+.button:hover {
+  background: var(--button-hover);
+}
