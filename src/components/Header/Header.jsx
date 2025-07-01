@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../Header/Header.module.css";
 
-const Header = () => {
+const Header = ({ isHomePage = false }) => {
   return (
-    <div className={styles.header}>
+    <div className={`${styles.header} ${isHomePage ? styles.homeHeader : ""}`}>
       <h1 href="#" className={styles.logo}>
         Travel<span className={styles.trucks}>Trucks</span>
       </h1>{" "}
