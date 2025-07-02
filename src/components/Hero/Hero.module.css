@@ -4,14 +4,17 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  min-height: calc(100vh - 72px - 80px);
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  margin-bottom: 0 !important;
+  /* Footer ile tam bitişik olması için */
+  flex: 1 0 auto;
 }
 
 .overlay {
@@ -28,6 +31,7 @@
   z-index: 2;
   color: #fff;
   margin-left: 64px;
+  margin-top: 72px;
   max-width: 650px;
 }
 

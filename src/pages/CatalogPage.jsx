@@ -1,10 +1,12 @@
 import React from "react";
+import Sidebar from "../components/Sidebar/Sidebar";
+import Catalog from "../components/Catalog/Catalog";
 
 const CatalogPage = () => {
   return (
-    <div className="page-content">
-      <h1>Travel Trucks Catalog</h1>
-      <p>Here you can browse all available travel trucks.</p>
+    <div className="page-content catalog-content">
+      <Sidebar />
+      <Catalog />
     </div>
   );
 };

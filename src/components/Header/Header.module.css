@@ -13,13 +13,6 @@
   background: var(--inputs);
 }
 
-.homeHeader {
-  position: relative;
-  top: auto;
-  left: auto;
-  right: auto;
-}
-
 .logo {
   font-size: 24px;
   font-weight: bold;

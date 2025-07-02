@@ -4,6 +4,12 @@
   padding: 20px;
   text-align: center;
   font-family: var(--font-family);
+  margin-top: 0;
+}
+
+/* Hero ile footer arasındaki boşluğu kaldırmak için */
+.footer {
+  margin-top: 0 !important;
 }
 
 .portfolioLink {

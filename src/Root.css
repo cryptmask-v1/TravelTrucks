@@ -13,13 +13,37 @@ body {
   overflow-x: hidden;
 }
 
-/* Global layout styles for pages with fixed header */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.main-content.catalog-page {
+  padding-top: 72px;
+  overflow-y: auto;
+}
+
+.main-content:not(.catalog-page) {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .page-content {
-  padding-top: 92px; /* Header height (72px) + some extra space (20px) */
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 20px;
-  min-height: 100vh;
+}
+.catalog-content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 48px;
 }
 
 :root {

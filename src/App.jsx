@@ -8,18 +8,20 @@ import "./Root.css";
 
 function App() {
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isCatalogPage = location.pathname.startsWith("/catalog");
 
   return (
-    <>
-      {!isHomePage && <Header />}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/catalog/:id" element={<TruckDetailPage />} />
-      </Routes>
-      {!isHomePage && <Footer />}
-    </>
+    <div className="app-layout">
+      <Header />
+      <main className={`main-content ${isCatalogPage ? "catalog-page" : ""}`}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<TruckDetailPage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

@@ -10,24 +10,21 @@ const Footer = () => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div>
-      <footer className={styles.footer}>
-        <p>
-          &copy; {new Date().getFullYear()} Truck Management System. All rights
-          reserved.
-        </p>
-        <p>
-          Developed by{" "}
-          <span className={styles.portfolioLink} onClick={openModal}>
-            GOIT Student 💛
-          </span>
-        </p>
-      </footer>
-
+    <footer className={styles.footer}>
+      <p>
+        &copy; {new Date().getFullYear()} Truck Management System. All rights
+        reserved.
+      </p>
+      <p>
+        Developed by{" "}
+        <span className={styles.portfolioLink} onClick={openModal}>
+          GOIT Student 💛
+        </span>
+      </p>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <Portfolio />
       </Modal>
-    </div>
+    </footer>
   );
 };
 
