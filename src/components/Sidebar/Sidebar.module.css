@@ -92,9 +92,21 @@
   letter-spacing: -0.01em;
   text-align: center;
   color: var(--main);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
+
 .item:hover {
   border-color: var(--button);
+}
+
+.item.active {
+  border-color: var(--button);
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
 }
 
 .veichleType {
@@ -117,4 +129,8 @@
   letter-spacing: -0.01em;
   color: var(--white);
   cursor: pointer;
+}
+
+.sidebarButton:hover {
+  background-color: var(--button-hover);
 }

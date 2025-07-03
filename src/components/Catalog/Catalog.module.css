@@ -71,6 +71,16 @@
   width: 26px;
   height: 24px;
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.heartIcon:hover {
+  transform: scale(1.1);
+}
+
+.heartIcon.favorite {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(99%) saturate(1663%)
+    hue-rotate(347deg) brightness(95%) contrast(88%);
 }
 
 .ratingLocation {
@@ -124,6 +134,18 @@
   color: var(--main);
 }
 
+.featureIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.ratingIcon,
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
 .showMoreBtn {
   border-radius: 200px;
   padding: 16px 60px;
@@ -137,8 +159,61 @@
   color: var(--white);
   cursor: pointer;
   align-self: flex-start;
+  transition: all 0.3s ease;
 }
 
 .showMoreBtn:hover {
   background: var(--button-hover);
+}
+
+/* Loading, Error ve Empty states */
+.loading,
+.error,
+.noResults {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  color: var(--main);
+}
+
+.error {
+  color: #e74c3c;
+}
+
+/* Load More Button Container */
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.loadMoreBtn {
+  border-radius: 200px;
+  padding: 16px 32px;
+  background: var(--button);
+  border: 1px solid var(--button);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 166px;
+}
+
+.loadMoreBtn:hover {
+  background: var(--button-hover);
+  border-color: var(--button-hover);
+}
+
+.loadMoreBtn:disabled {
+  background: var(--gray);
+  border-color: var(--gray);
+  cursor: not-allowed;
 }

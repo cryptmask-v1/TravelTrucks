@@ -1,0 +1,432 @@
+/* TruckDetailPage.module.css */
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 64px;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.content {
+  max-width: 1312px;
+  margin: 0 auto;
+}
+
+.loading,
+.error,
+.notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  color: var(--main);
+}
+
+.error {
+  color: #e74c3c;
+}
+
+/* Header Section */
+.header {
+  margin-bottom: 28px;
+}
+
+.truckName {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--main);
+  margin: 0 0 8px 0;
+}
+
+.ratingLocation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.rating,
+.location {
+  display: flex;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--main);
+}
+
+.ratingIcon,
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.priceContainer {
+  margin-bottom: 28px;
+}
+
+.price {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+/* Gallery Section */
+.gallery {
+  margin-bottom: 24px;
+}
+
+.mainImage {
+  width: 100%;
+  height: 312px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.mainImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 24px;
+}
+
+.thumbnail {
+  width: 94px;
+  height: 94px;
+  border-radius: 10px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Description */
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 44px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 44px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.tab {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+  background: none;
+  border: none;
+  padding: 0 0 24px 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab:hover {
+  color: var(--button);
+}
+
+.tab.active {
+  color: var(--button);
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--button);
+  border-radius: 2px;
+}
+
+/* Tab Content */
+.tabContent {
+  display: flex;
+  gap: 24px;
+}
+
+.leftColumn {
+  flex: 1;
+  max-width: 631px;
+}
+
+.rightColumn {
+  width: 448px;
+}
+
+/* Features */
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.equipment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.equipmentItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--gray-light);
+  border-radius: 100px;
+  padding: 12px 18px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.equipmentIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Vehicle Details */
+.vehicleDetails h3 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+  margin: 0 0 24px 0;
+}
+
+.detailsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33;
+  color: var(--main);
+}
+
+/* Reviews */
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.review {
+  margin-bottom: 24px;
+}
+
+.reviewHeader {
+  margin-bottom: 16px;
+}
+
+.reviewerInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--inputs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--button);
+}
+
+.reviewerName {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.33;
+  color: var(--main);
+  margin-bottom: 4px;
+}
+
+.reviewRating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+}
+
+.star.filled {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(65%) saturate(447%)
+    hue-rotate(8deg) brightness(101%) contrast(101%);
+}
+
+.star.empty {
+  filter: brightness(0) saturate(100%) invert(75%) sepia(11%) saturate(0%)
+    hue-rotate(151deg) brightness(95%) contrast(85%);
+}
+
+.reviewComment {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0;
+}
+
+.noReviews {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  text-align: center;
+  padding: 40px;
+}
+
+/* Booking Form */
+.bookingForm {
+  border: 1px solid var(--gray-light);
+  border-radius: 10px;
+  padding: 24px;
+  background-color: var(--white);
+}
+
+.bookingForm h3 {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--main);
+  margin: 0 0 8px 0;
+}
+
+.bookingSubtext {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0 0 24px 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.input,
+.textarea {
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 18px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+  background-color: var(--inputs);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--button);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--text);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 114px;
+}
+
+.sendButton {
+  border-radius: 200px;
+  padding: 16px 60px;
+  background: var(--button);
+  border: none;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.sendButton:hover {
+  background: var(--button-hover);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px;
+  }
+
+  .tabContent {
+    flex-direction: column;
+  }
+
+  .rightColumn {
+    width: 100%;
+  }
+
+  .thumbnails {
+    gap: 12px;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+  }
+}

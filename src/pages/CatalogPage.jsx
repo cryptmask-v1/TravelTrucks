@@ -4,7 +4,15 @@ import Catalog from "../components/Catalog/Catalog";
 
 const CatalogPage = () => {
   return (
-    <div className="page-content catalog-content">
+    <div
+      style={{
+        display: "flex",
+        padding: "48px 64px",
+        gap: "64px",
+        minHeight: "100vh",
+        backgroundColor: "#f7f7f7",
+      }}
+    >
       <Sidebar />
       <Catalog />
     </div>
