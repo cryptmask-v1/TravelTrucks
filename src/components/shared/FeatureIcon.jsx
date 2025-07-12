@@ -10,6 +10,13 @@ import alcoveIcon from "../../assets/icons/alcove.svg";
 import mapIcon from "../../assets/icons/map.svg";
 import ratingIcon from "../../assets/icons/rating.svg";
 import hearthIcon from "../../assets/icons/hearth.svg";
+import gasIcon from "../../assets/icons/gas.svg";
+import petrolIcon from "../../assets/icons/petrol.svg";
+import radioIcon from "../../assets/icons/radio.svg";
+import microwaveIcon from "../../assets/icons/microwave.svg";
+import refrigeratorIcon from "../../assets/icons/refrigerator.svg";
+import waterIcon from "../../assets/icons/water.svg";
+import windIcon from "../../assets/icons/wind.svg";
 
 const iconMap = {
   ac: acIcon,
@@ -23,8 +30,13 @@ const iconMap = {
   map: mapIcon,
   rating: ratingIcon,
   hearth: hearthIcon,
-  petrol: automaticIcon, // Using automatic icon for petrol/engine
-  radio: tvIcon, // Using TV icon for radio
+  gas: gasIcon,
+  petrol: petrolIcon,
+  radio: radioIcon,
+  microwave: microwaveIcon,
+  refrigerator: refrigeratorIcon,
+  water: waterIcon,
+  wind: windIcon,
 };
 
 const FeatureIcon = ({ type, alt, className, ...props }) => {

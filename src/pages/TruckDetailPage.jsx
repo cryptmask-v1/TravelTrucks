@@ -27,23 +27,12 @@ const TruckDetailPage = () => {
     }
   }, [dispatch, id]);
 
-  // Resim URL'ini güvenli bir şekilde al
-  const getTruckImage = (truck, index = 0) => {
-    if (
-      truck?.gallery &&
-      Array.isArray(truck.gallery) &&
-      truck.gallery.length > index
-    ) {
-      const image = truck.gallery[index];
-      return image.thumb || image.original || "/src/assets/Pic.png";
-    }
-    return "/src/assets/Pic.png";
-  };
-
   if (loading) {
     return (
       <div className={styles.container}>
-        <div className={styles.loading}>Loading truck details...</div>
+        <div className={styles.content}>
+          <div className={styles.loading}>Loading truck details...</div>
+        </div>
       </div>
     );
   }
@@ -51,7 +40,9 @@ const TruckDetailPage = () => {
   if (error) {
     return (
       <div className={styles.container}>
-        <div className={styles.error}>Error: {error}</div>
+        <div className={styles.content}>
+          <div className={styles.error}>Error: {error}</div>
+        </div>
       </div>
     );
   }
@@ -59,7 +50,9 @@ const TruckDetailPage = () => {
   if (!truck) {
     return (
       <div className={styles.container}>
-        <div className={styles.notFound}>Truck not found</div>
+        <div className={styles.content}>
+          <div className={styles.notFound}>Truck not found</div>
+        </div>
       </div>
     );
   }
@@ -95,29 +88,20 @@ const TruckDetailPage = () => {
 
         {/* Gallery Section */}
         <div className={styles.gallery}>
-          <div className={styles.mainImage}>
-            <img
-              src={getTruckImage(truck, 0)}
-              alt={truck.name}
-              className={styles.mainImageImg}
-              onError={(e) => {
-                e.target.src = "/src/assets/Pic.png";
-              }}
-            />
-          </div>
-          <div className={styles.thumbnails}>
-            {truck.gallery?.slice(1, 4).map((image, index) => (
-              <img
-                key={index}
-                src={image.thumb || image.original}
-                alt={`${truck.name} ${index + 2}`}
-                className={styles.thumbnail}
-                onError={(e) => {
-                  e.target.src = "/src/assets/Pic.png";
-                }}
-              />
+          <ul className={styles.galleryList}>
+            {truck.gallery?.slice(0, 3).map((image, index) => (
+              <li key={index} className={styles.galleryItem}>
+                <img
+                  src={image.thumb || image.original}
+                  alt={`${truck.name} ${index + 1}`}
+                  className={styles.galleryImage}
+                  onError={(e) => {
+                    e.target.src = "/src/assets/Pic.png";
+                  }}
+                />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* Description */}
@@ -167,7 +151,7 @@ const TruckDetailPage = () => {
                   {truck.engine && (
                     <div className={styles.equipmentItem}>
                       <FeatureIcon
-                        type="petrol"
+                        type={truck.engine === "petrol" ? "petrol" : "gas"}
                         className={styles.equipmentIcon}
                       />
                       <span>{truck.engine}</span>
@@ -204,6 +188,42 @@ const TruckDetailPage = () => {
                     <div className={styles.equipmentItem}>
                       <FeatureIcon type="tv" className={styles.equipmentIcon} />
                       <span>TV</span>
+                    </div>
+                  )}
+                  {truck.microwave && (
+                    <div className={styles.equipmentItem}>
+                      <FeatureIcon
+                        type="microwave"
+                        className={styles.equipmentIcon}
+                      />
+                      <span>Microwave</span>
+                    </div>
+                  )}
+                  {truck.refrigerator && (
+                    <div className={styles.equipmentItem}>
+                      <FeatureIcon
+                        type="refrigerator"
+                        className={styles.equipmentIcon}
+                      />
+                      <span>Refrigerator</span>
+                    </div>
+                  )}
+                  {truck.water && (
+                    <div className={styles.equipmentItem}>
+                      <FeatureIcon
+                        type="water"
+                        className={styles.equipmentIcon}
+                      />
+                      <span>Water</span>
+                    </div>
+                  )}
+                  {truck.gas && (
+                    <div className={styles.equipmentItem}>
+                      <FeatureIcon
+                        type="gas"
+                        className={styles.equipmentIcon}
+                      />
+                      <span>Gas</span>
                     </div>
                   )}
                 </div>

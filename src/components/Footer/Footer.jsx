@@ -11,16 +11,18 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <p>
-        &copy; {new Date().getFullYear()} Truck Management System. All rights
-        reserved.
-      </p>
-      <p>
-        Developed by{" "}
-        <span className={styles.portfolioLink} onClick={openModal}>
-          GOIT Student 💛
-        </span>
-      </p>
+      <div className={styles.container}>
+        <p>
+          &copy; {new Date().getFullYear()} Truck Management System. All rights
+          reserved.
+        </p>
+        <p>
+          Developed by{" "}
+          <span className={styles.portfolioLink} onClick={openModal}>
+            GOIT Student 💛
+          </span>
+        </p>
+      </div>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <Portfolio />
       </Modal>

@@ -1,0 +1,26 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive */
+@media (max-width: 1440px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 100%;
+  }
+}

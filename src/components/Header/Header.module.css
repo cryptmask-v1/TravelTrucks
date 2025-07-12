@@ -1,22 +1,25 @@
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   z-index: 10;
-  gap: 16px;
   height: 72px;
   font-family: var(--font-family);
   background: var(--inputs);
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .logo {
   font-size: 24px;
   font-weight: bold;
-  margin-left: 64px;
   cursor: pointer;
   color: var(--main);
 }
@@ -44,4 +47,32 @@
 
 .activeLink {
   color: #e44848;
+}
+
+/* Responsive */
+@media (max-width: 1440px) {
+  .container {
+    padding: 0 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav {
+    gap: 12px;
+    position: static;
+    transform: none;
+    margin-left: auto;
+  }
+
+  .link {
+    font-size: 14px;
+  }
 }

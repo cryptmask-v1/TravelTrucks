@@ -1,16 +1,17 @@
 /* TruckDetailPage.module.css */
 
 .container {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 48px 64px;
-  background-color: #f7f7f7;
+  width: 100%;
   min-height: 100vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
 }
 
 .content {
-  max-width: 1312px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 1440px;
+  padding: 48px 64px;
 }
 
 .loading,
@@ -59,13 +60,19 @@
   font-size: 16px;
   line-height: 1.5;
   color: var(--main);
+  gap: 4px;
 }
 
 .ratingIcon,
 .locationIcon {
   width: 16px;
   height: 16px;
-  margin-right: 4px;
+  flex-shrink: 0;
+}
+
+.ratingIcon {
+  filter: brightness(0) saturate(100%) invert(77%) sepia(65%) saturate(447%)
+    hue-rotate(8deg) brightness(101%) contrast(101%);
 }
 
 .priceContainer {
@@ -85,35 +92,29 @@
   margin-bottom: 24px;
 }
 
-.mainImage {
-  width: 100%;
+.galleryList {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.galleryItem {
+  flex: 1;
   height: 312px;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 24px;
 }
 
-.mainImageImg {
+.galleryImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.thumbnails {
-  display: flex;
-  gap: 24px;
-}
-
-.thumbnail {
-  width: 94px;
-  height: 94px;
-  border-radius: 10px;
-  object-fit: cover;
-  cursor: pointer;
   transition: transform 0.2s ease;
 }
 
-.thumbnail:hover {
+.galleryImage:hover {
   transform: scale(1.05);
 }
 
@@ -187,7 +188,12 @@
 .features {
   display: flex;
   flex-direction: column;
-  gap: 44px;
+  gap: 100px;
+  border-radius: 10px;
+  width: 631px;
+  padding: 52px 44px;
+  height: 588px;
+  background: #f7f7f7;
 }
 
 .equipment {
@@ -208,6 +214,7 @@
   font-size: 16px;
   line-height: 1.25;
   color: var(--main);
+  text-transform: capitalize;
 }
 
 .equipmentIcon {
@@ -216,13 +223,19 @@
 }
 
 /* Vehicle Details */
+.vehicleDetails {
+  padding-bottom: 24px;
+}
+
 .vehicleDetails h3 {
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 20px;
-  line-height: 1.2;
+  line-height: 120%;
   color: var(--main);
   margin: 0 0 24px 0;
+  border-bottom: 1px solid var(--gray-light);
+  padding-bottom: 24px;
 }
 
 .detailsGrid {
@@ -234,6 +247,7 @@
 .detailRow {
   display: flex;
   justify-content: space-between;
+  text-transform: capitalize;
   align-items: center;
   font-family: var(--font-family);
   font-weight: 500;
@@ -330,8 +344,9 @@
 .bookingForm {
   border: 1px solid var(--gray-light);
   border-radius: 10px;
-  padding: 24px;
-  background-color: var(--white);
+  padding: 44px;
+  width: 641px;
+  height: 588px;
 }
 
 .bookingForm h3 {
@@ -408,8 +423,14 @@
 }
 
 /* Responsive */
+@media (max-width: 1440px) {
+  .content {
+    padding: 48px 32px;
+  }
+}
+
 @media (max-width: 768px) {
-  .container {
+  .content {
     padding: 24px 16px;
   }
 
@@ -421,12 +442,11 @@
     width: 100%;
   }
 
-  .thumbnails {
-    gap: 12px;
+  .features {
+    width: 100%;
   }
 
-  .thumbnail {
-    width: 80px;
-    height: 80px;
+  .bookingForm {
+    width: 100%;
   }
 }
