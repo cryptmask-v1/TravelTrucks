@@ -94,7 +94,7 @@
 
 .galleryList {
   display: flex;
-  gap: 24px;
+  gap: 48px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -172,7 +172,7 @@
 /* Tab Content */
 .tabContent {
   display: flex;
-  gap: 24px;
+  gap: 40px;
 }
 
 .leftColumn {
@@ -344,7 +344,7 @@
 .bookingForm {
   border: 1px solid var(--gray-light);
   border-radius: 10px;
-  padding: 44px;
+  padding: 44px 57px;
   width: 641px;
   height: 588px;
 }
@@ -398,13 +398,18 @@
 }
 
 .textarea {
-  resize: vertical;
-  min-height: 114px;
+  resize: none;
+  border-radius: 10px;
+  padding: 18px 308px 76px 18px;
+  width: 527px;
+  height: 118px;
 }
 
 .sendButton {
   border-radius: 200px;
   padding: 16px 60px;
+  width: 166px;
+  height: 56px;
   background: var(--button);
   border: none;
   font-family: var(--font-family);
@@ -414,7 +419,8 @@
   letter-spacing: -0.01em;
   color: var(--white);
   cursor: pointer;
-  align-self: flex-start;
+  align-self: center;
+  margin-top: 10px;
   transition: background-color 0.3s ease;
 }
 

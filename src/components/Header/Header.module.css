@@ -1,20 +1,21 @@
 .header {
   position: relative;
   z-index: 10;
-  height: 72px;
-  font-family: var(--font-family);
-  background: var(--inputs);
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
   width: 100%;
   max-width: 1440px;
+  font-family: var(--font-family);
+  background-color: var(--inputs);
   padding: 0 64px;
   display: flex;
   align-items: center;
   position: relative;
+  height: 72px;
 }
 
 .logo {

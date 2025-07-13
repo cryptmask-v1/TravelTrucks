@@ -9,9 +9,10 @@ import "./Root.css";
 function App() {
   const location = useLocation();
   const isCatalogPage = location.pathname.startsWith("/catalog");
+  const isHomePage = location.pathname === "/";
 
   return (
-    <div className="app-layout">
+    <div className={`app-layout ${isHomePage ? "homepage" : ""}`}>
       <Header />
       <main className={`main-content ${isCatalogPage ? "catalog-page" : ""}`}>
         <Routes>

@@ -16,6 +16,7 @@ const TruckDetailPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("features");
+  const [dateInputType, setDateInputType] = useState("text");
 
   const truck = useSelector(selectCurrentTruck);
   const loading = useSelector(selectLoading);
@@ -324,9 +325,15 @@ const TruckDetailPage = () => {
                   required
                 />
                 <input
-                  type="date"
+                  type={dateInputType}
                   placeholder="Booking date*"
                   className={styles.input}
+                  onFocus={() => setDateInputType("date")}
+                  onBlur={(e) => {
+                    if (!e.target.value) {
+                      setDateInputType("text");
+                    }
+                  }}
                   required
                 />
                 <textarea

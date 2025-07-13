@@ -1,17 +1,19 @@
 .footer {
-  background: var(--inputs);
   color: rgb(0, 0, 0);
   font-family: var(--font-family);
   margin-top: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .container {
+  background: var(--inputs);
   width: 100%;
   max-width: 1440px;
-  padding: 20px 64px;
-  text-align: center;
+  height: 64px;
+  padding: 15px 64px;
 }
 
 .portfolioLink {
@@ -30,12 +32,12 @@
 /* Responsive */
 @media (max-width: 1440px) {
   .container {
-    padding: 20px 32px;
+    padding: 0 32px;
   }
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 20px 16px;
+    padding: 0 16px;
   }
 }
