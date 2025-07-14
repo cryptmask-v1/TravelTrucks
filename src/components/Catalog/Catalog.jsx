@@ -192,6 +192,8 @@ const Catalog = () => {
                   <a
                     href={`/catalog/${truck.id}`}
                     className={styles.showMoreBtn}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     Show more
                   </a>
