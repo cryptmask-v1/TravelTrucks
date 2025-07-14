@@ -67,6 +67,17 @@
   margin: 0;
 }
 
+.vehicleNameLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.vehicleNameLink:hover .vehicleName {
+  color: var(--button);
+  transition: color 0.2s ease;
+}
+
 .priceContainer {
   display: flex;
   align-items: center;

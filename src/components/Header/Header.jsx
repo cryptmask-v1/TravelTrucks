@@ -6,9 +6,9 @@ const Header = ({ isHomePage = false }) => {
   return (
     <div className={`${styles.header} ${isHomePage ? styles.homeHeader : ""}`}>
       <div className={styles.container}>
-        <h1 href="#" className={styles.logo}>
+        <NavLink to="/" className={styles.logo}>
           Travel<span className={styles.trucks}>Trucks</span>
-        </h1>
+        </NavLink>
         <div className={styles.nav}>
           <NavLink
             to="/"

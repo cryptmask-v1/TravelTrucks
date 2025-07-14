@@ -108,7 +108,14 @@ const Catalog = () => {
               <div className={styles.itemContent}>
                 <div className={styles.headerRatingGroup}>
                   <div className={styles.itemHeader}>
-                    <h2 className={styles.vehicleName}>{truck.name}</h2>
+                    <a
+                      href={`/catalog/${truck.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.vehicleNameLink}
+                    >
+                      <h2 className={styles.vehicleName}>{truck.name}</h2>
+                    </a>
                     <div className={styles.priceContainer}>
                       <span className={styles.price}>
                         €{truck.price.toFixed(2)}
