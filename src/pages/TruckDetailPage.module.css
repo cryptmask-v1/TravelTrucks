@@ -58,7 +58,7 @@
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 150%;
   color: var(--main);
   gap: 4px;
 }
@@ -68,11 +68,6 @@
   width: 16px;
   height: 16px;
   flex-shrink: 0;
-}
-
-.ratingIcon {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(65%) saturate(447%)
-    hue-rotate(8deg) brightness(101%) contrast(101%);
 }
 
 .priceContainer {
@@ -123,7 +118,7 @@
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 150%;
   color: var(--text);
   margin-bottom: 44px;
 }
@@ -151,10 +146,6 @@
 }
 
 .tab:hover {
-  color: var(--button);
-}
-
-.tab.active {
   color: var(--button);
 }
 
@@ -188,11 +179,11 @@
 .features {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 44px;
   border-radius: 10px;
+  padding: 44px 52px;
   width: 631px;
-  padding: 52px 44px;
-  height: 588px;
+  min-height: 588px;
   background: #f7f7f7;
 }
 
@@ -200,21 +191,45 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar for equipment */
+.equipment::-webkit-scrollbar {
+  width: 6px;
+}
+
+.equipment::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.equipment::-webkit-scrollbar-thumb {
+  background: var(--button);
+  border-radius: 3px;
+}
+
+.equipment::-webkit-scrollbar-thumb:hover {
+  background: var(--button-hover);
 }
 
 .equipmentItem {
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid var(--gray-light);
   border-radius: 100px;
   padding: 12px 18px;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.25;
+  line-height: 150%;
+  text-align: center;
   color: var(--main);
   text-transform: capitalize;
+  background: var(--badges);
+  mix-blend-mode: multiply;
 }
 
 .equipmentIcon {
@@ -251,8 +266,8 @@
   align-items: center;
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33;
+  font-size: 16px;
+  line-height: 150%;
   color: var(--main);
 }
 
@@ -309,11 +324,6 @@
 .star {
   width: 16px;
   height: 16px;
-}
-
-.star.filled {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(65%) saturate(447%)
-    hue-rotate(8deg) brightness(101%) contrast(101%);
 }
 
 .star.empty {
@@ -450,6 +460,12 @@
 
   .features {
     width: 100%;
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .equipment {
+    max-height: 150px;
   }
 
   .bookingForm {

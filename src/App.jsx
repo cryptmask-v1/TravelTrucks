@@ -4,6 +4,7 @@ import CatalogPage from "./pages/CatalogPage";
 import TruckDetailPage from "./pages/TruckDetailPage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import { ToastContainer } from "react-toastify";
 import "./Root.css";
 
 function App() {
@@ -22,6 +23,18 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

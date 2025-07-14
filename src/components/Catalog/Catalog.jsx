@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import styles from "./Catalog.module.css";
 import hearthIcon from "../../assets/icons/hearth.svg";
 import mapIcon from "../../assets/icons/map.svg";
@@ -20,7 +19,6 @@ import { toggleFavorite } from "../../redux/slices/trucksSlice";
 
 const Catalog = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // Redux state'lerini al
   const trucks = useSelector(selectCatalogTrucks);
@@ -58,11 +56,6 @@ const Catalog = () => {
   // Favorilere ekleme/çıkarma
   const handleToggleFavorite = (truckId) => {
     dispatch(toggleFavorite(truckId));
-  };
-
-  // Truck detay sayfasına git
-  const handleShowMore = (truckId) => {
-    navigate(`/catalog/${truckId}`);
   };
 
   // Loading durumu
@@ -113,84 +106,98 @@ const Catalog = () => {
                 />
               </div>
               <div className={styles.itemContent}>
-                <div className={styles.itemHeader}>
-                  <h2 className={styles.vehicleName}>{truck.name}</h2>
-                  <div className={styles.priceContainer}>
-                    <span className={styles.price}>
-                      €{truck.price.toFixed(2)}
+                <div className={styles.headerRatingGroup}>
+                  <div className={styles.itemHeader}>
+                    <h2 className={styles.vehicleName}>{truck.name}</h2>
+                    <div className={styles.priceContainer}>
+                      <span className={styles.price}>
+                        €{truck.price.toFixed(2)}
+                      </span>
+                      <img
+                        src={hearthIcon}
+                        alt="Add to favorites"
+                        className={`${styles.heartIcon} ${
+                          isFavorite ? styles.favorite : ""
+                        }`}
+                        onClick={() => handleToggleFavorite(truck.id)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className={styles.ratingLocationGroup}>
+                    <span className={styles.rating}>
+                      <img
+                        src={ratingIcon}
+                        alt="Rating"
+                        className={styles.ratingIcon}
+                      />
+                      {truck.rating}({truck.reviews?.length || 0} Reviews)
                     </span>
-                    <img
-                      src={hearthIcon}
-                      alt="Add to favorites"
-                      className={`${styles.heartIcon} ${
-                        isFavorite ? styles.favorite : ""
-                      }`}
-                      onClick={() => handleToggleFavorite(truck.id)}
-                    />
+                    <span className={styles.location}>
+                      <img
+                        src={mapIcon}
+                        alt="Location"
+                        className={styles.locationIcon}
+                      />
+                      {truck.location}
+                    </span>
                   </div>
                 </div>
-                <div className={styles.ratingLocation}>
-                  <span className={styles.rating}>
-                    <img
-                      src={ratingIcon}
-                      alt="Rating"
-                      className={styles.ratingIcon}
-                    />
-                    {truck.rating}({truck.reviews?.length || 0} Reviews)
-                  </span>
-                  <span className={styles.location}>
-                    <img
-                      src={mapIcon}
-                      alt="Location"
-                      className={styles.locationIcon}
-                    />
-                    {truck.location}
-                  </span>
+
+                <div className={styles.descriptionGroup}>
+                  <p className={styles.description}>
+                    {truck.description?.substring(0, 100)}...
+                  </p>
                 </div>
-                <p className={styles.description}>
-                  {truck.description?.substring(0, 100)}...
-                </p>
-                <div className={styles.features}>
-                  {truck.transmission === "automatic" && (
-                    <span className={styles.feature}>
-                      <FeatureIcon
-                        type="automatic"
-                        className={styles.featureIcon}
-                      />
-                      Automatic
-                    </span>
-                  )}
-                  {truck.engine && (
-                    <span className={styles.feature}>
-                      <FeatureIcon
-                        type="petrol"
-                        className={styles.featureIcon}
-                      />
-                      {truck.engine}
-                    </span>
-                  )}
-                  {truck.kitchen && (
-                    <span className={styles.feature}>
-                      <FeatureIcon
-                        type="kitchen"
-                        className={styles.featureIcon}
-                      />
-                      Kitchen
-                    </span>
-                  )}
-                  {truck.AC && (
-                    <span className={styles.feature}>
-                      <FeatureIcon type="ac" className={styles.featureIcon} />
-                      AC
-                    </span>
-                  )}
+
+                <div className={styles.featuresGroup}>
+                  <div className={styles.features}>
+                    {truck.transmission === "automatic" && (
+                      <span className={styles.feature}>
+                        <FeatureIcon
+                          type="automatic"
+                          className={styles.featureIcon}
+                        />
+                        Automatic
+                      </span>
+                    )}
+                    {truck.engine && (
+                      <span className={styles.feature}>
+                        <FeatureIcon
+                          type="petrol"
+                          className={styles.featureIcon}
+                        />
+                        {truck.engine}
+                      </span>
+                    )}
+                    {truck.kitchen && (
+                      <span className={styles.feature}>
+                        <FeatureIcon
+                          type="kitchen"
+                          className={styles.featureIcon}
+                        />
+                        Kitchen
+                      </span>
+                    )}
+                    {truck.AC && (
+                      <span className={styles.feature}>
+                        <FeatureIcon type="ac" className={styles.featureIcon} />
+                        AC
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <button
-                  className={styles.showMoreBtn}
-                  onClick={() => handleShowMore(truck.id)}
-                >
-                  Show more
-                </button>
+
+                <div className={styles.buttonGroup}>
+                  <a
+                    href={`/catalog/${truck.id}`}
+                    className={styles.showMoreBtn}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Show more
+                  </a>
+                </div>
               </div>
             </div>
           );

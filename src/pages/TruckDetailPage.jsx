@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { getTruckById } from "../redux/slices/trucksSlice";
 import {
   selectCurrentTruck,
@@ -27,6 +28,40 @@ const TruckDetailPage = () => {
       dispatch(getTruckById(id));
     }
   }, [dispatch, id]);
+
+  // Rezervasyon formu submit işlevi
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const bookingData = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      bookingDate: formData.get("bookingDate"),
+      comment: formData.get("comment"),
+    };
+
+    // Form validasyonu
+    if (!bookingData.name || !bookingData.email || !bookingData.bookingDate) {
+      toast.error("Please fill in all required fields!");
+      return;
+    }
+
+    // Email validasyonu
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(bookingData.email)) {
+      toast.error("Please enter a valid email address!");
+      return;
+    }
+
+    // Başarı mesajı
+    toast.success(
+      "Booking request sent successfully! We will contact you soon."
+    );
+
+    // Formu temizle
+    e.target.reset();
+    setDateInputType("text");
+  };
 
   if (loading) {
     return (
@@ -311,21 +346,24 @@ const TruckDetailPage = () => {
                 Stay connected! We are always ready to help you.
               </p>
 
-              <form className={styles.form}>
+              <form className={styles.form} onSubmit={handleBookingSubmit}>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Name*"
                   className={styles.input}
                   required
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email*"
                   className={styles.input}
                   required
                 />
                 <input
                   type={dateInputType}
+                  name="bookingDate"
                   placeholder="Booking date*"
                   className={styles.input}
                   onFocus={() => setDateInputType("date")}
@@ -337,6 +375,7 @@ const TruckDetailPage = () => {
                   required
                 />
                 <textarea
+                  name="comment"
                   placeholder="Comment"
                   className={styles.textarea}
                   rows={4}

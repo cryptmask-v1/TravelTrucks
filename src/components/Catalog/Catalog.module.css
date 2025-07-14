@@ -35,9 +35,14 @@
 .itemContent {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
   flex: 1;
   justify-content: space-between;
+}
+
+.headerRatingGroup {
+  display: flex;
+  flex-direction: column;
 }
 
 .itemHeader {
@@ -45,6 +50,12 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 8px;
+}
+
+.ratingLocationGroup {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
 .vehicleName {
@@ -67,7 +78,7 @@
   font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
-  line-height: 1.25;
+  line-height: 133%;
   color: var(--main);
 }
 
@@ -85,13 +96,6 @@
 .heartIcon.favorite {
   filter: brightness(0) saturate(100%) invert(27%) sepia(99%) saturate(1663%)
     hue-rotate(347deg) brightness(95%) contrast(88%);
-}
-
-.ratingLocation {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 8px;
 }
 
 .rating {
@@ -120,16 +124,22 @@
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 150%;
   color: var(--text);
-  margin: 0 0 16px 0;
+}
+
+.descriptionGroup {
+  display: flex;
 }
 
 .features {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 24px;
+}
+
+.featuresGroup {
+  display: flex;
 }
 
 .feature {
@@ -138,6 +148,7 @@
   gap: 8px;
   padding: 12px 18px;
   background: var(--badges);
+  mix-blend-mode: multiply;
   border-radius: 100px;
   font-family: var(--font-family);
   font-weight: 500;
@@ -159,14 +170,10 @@
   flex-shrink: 0;
 }
 
-.ratingIcon {
-  filter: brightness(0) saturate(100%) invert(77%) sepia(65%) saturate(447%)
-    hue-rotate(8deg) brightness(101%) contrast(101%);
-}
-
 .showMoreBtn {
   border-radius: 200px;
-  padding: 16px 60px;
+  width: 166px;
+  height: 56px;
   background: var(--button);
   border: none;
   font-family: var(--font-family);
@@ -176,9 +183,13 @@
   letter-spacing: -0.01em;
   color: var(--white);
   cursor: pointer;
-  align-self: flex-start;
   transition: all 0.3s ease;
   margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
 }
 
 .showMoreBtn:hover {
@@ -211,28 +222,31 @@
 }
 
 .loadMoreBtn {
+  border: 1px solid var(--gray-light);
   border-radius: 200px;
   padding: 16px 32px;
-  background: var(--button);
-  border: 1px solid var(--button);
+  width: 145px;
+  height: 56px;
+  background: var(--white);
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 150%;
   letter-spacing: -0.01em;
-  color: var(--white);
+  color: var(--main);
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 166px;
-}
-
-.loadMoreBtn:hover {
-  background: var(--button-hover);
-  border-color: var(--button-hover);
+  text-align: center;
 }
 
 .loadMoreBtn:disabled {
   background: var(--gray);
   border-color: var(--gray);
   cursor: not-allowed;
+}
+
+.buttonGroup {
+  display: flex;
+  margin-top: auto;
 }

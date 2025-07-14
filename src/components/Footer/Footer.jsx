@@ -12,10 +12,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <p>
-          &copy; {new Date().getFullYear()} Truck Management System. All rights
-          reserved.
-        </p>
+        <p>&copy; {new Date().getFullYear()} Truck Management System.</p>
         <p>
           Developed by{" "}
           <span className={styles.portfolioLink} onClick={openModal}>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      canvas {
+        border: 1px solid #ccc;
+        margin: 10px;
+      }
+      .container {
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Favicon Generator for TravelTrucks</h3>
+      <canvas id="canvas16" width="16" height="16"></canvas>
+      <canvas id="canvas32" width="32" height="32"></canvas>
+      <canvas id="canvas48" width="48" height="48"></canvas>
+      <p>Right-click on canvases and save as PNG files</p>
+    </div>
+
+    <script>
+      function drawFavicon(canvas, size) {
+        const ctx = canvas.getContext("2d");
+        const scale = size / 32;
+
+        // Background circle
+        ctx.fillStyle = "#E44848";
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Camper van body
+        ctx.fillStyle = "white";
+        ctx.fillRect(6 * scale, 14 * scale, 20 * scale, 8 * scale);
+
+        // Front section
+        ctx.fillRect(22 * scale, 12 * scale, 4 * scale, 4 * scale);
+
+        // Windows
+        ctx.fillStyle = "#E44848";
+        ctx.fillRect(8 * scale, 15 * scale, 3 * scale, 2 * scale);
+        ctx.fillRect(13 * scale, 15 * scale, 3 * scale, 2 * scale);
+        ctx.fillRect(18 * scale, 15 * scale, 3 * scale, 2 * scale);
+
+        // Wheels
+        ctx.fillStyle = "#101828";
+        ctx.beginPath();
+        ctx.arc(10 * scale, 23 * scale, 2 * scale, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(22 * scale, 23 * scale, 2 * scale, 0, 2 * Math.PI);
+        ctx.fill();
+
+        // Wheel centers
+        ctx.fillStyle = "#F7F7F7";
+        ctx.beginPath();
+        ctx.arc(10 * scale, 23 * scale, 1 * scale, 0, 2 * Math.PI);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(22 * scale, 23 * scale, 1 * scale, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      drawFavicon(document.getElementById("canvas16"), 16);
+      drawFavicon(document.getElementById("canvas32"), 32);
+      drawFavicon(document.getElementById("canvas48"), 48);
+    </script>
+  </body>
+</html>
